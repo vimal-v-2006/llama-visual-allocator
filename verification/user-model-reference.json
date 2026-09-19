@@ -1,0 +1,90 @@
+[
+  {
+    "path": "/home/vimal/Documents/Models/unsloth/Qwen3.8-27B-GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+    "metadata": {
+      "general.architecture": "qwen35",
+      "general.type": "model",
+      "general.sampling.top_k": 20,
+      "general.sampling.top_p": 0.949999988079071,
+      "general.sampling.temp": 1.0,
+      "general.name": "Qwen3.8-27B",
+      "general.basename": "Qwen3.8-27B",
+      "general.description": "Renewal of the beloved Qwen model, delivering unmatched intelligence density.",
+      "general.quantized_by": "Unsloth",
+      "general.size_label": "27B",
+      "general.license": "apache-2.0",
+      "general.repo_url": "https://huggingface.co/unsloth",
+      "general.base_model.count": 1,
+      "general.base_model.0.name": "Qwen3.8 27B",
+      "general.base_model.0.organization": "Qwen",
+      "general.base_model.0.repo_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "general.tags": [
+        "unsloth"
+      ],
+      "qwen35.block_count": 65,
+      "qwen35.context_length": 262144,
+      "qwen35.embedding_length": 5120,
+      "qwen35.attention.head_count": 24,
+      "qwen35.attention.head_count_kv": 4,
+      "qwen35.attention.key_length": 256,
+      "qwen35.attention.value_length": 256,
+      "qwen35.nextn_predict_layers": 1,
+      "qwen35.ssm.conv_kernel": 4,
+      "qwen35.ssm.state_size": 128,
+      "qwen35.ssm.group_count": 16,
+      "qwen35.ssm.time_step_rank": 48,
+      "qwen35.ssm.inner_size": 6144,
+      "general.quantization_version": 2,
+      "general.file_type": 15
+    },
+    "tensors": 866,
+    "weight_bytes": 17548181504,
+    "quant_types": {
+      "Q6_K": 56,
+      "F32": 360,
+      "Q4_K": 69,
+      "Q5_K": 191,
+      "IQ4_XS": 70,
+      "Q3_K": 3,
+      "Q8_0": 110,
+      "IQ4_NL": 6,
+      "IQ3_S": 1
+    }
+  },
+  {
+    "path": "/home/vimal/Documents/Models/unsloth/Qwen3.8-27B-GGUF/mmproj-BF16.gguf",
+    "metadata": {
+      "general.architecture": "clip",
+      "general.type": "mmproj",
+      "general.sampling.top_k": 20,
+      "general.sampling.top_p": 0.949999988079071,
+      "general.sampling.temp": 1.0,
+      "general.name": "Qwen3.8-27B",
+      "general.finetune": "27b",
+      "general.basename": "Qwen3.8-27B",
+      "general.description": "Renewal of the beloved Qwen model, delivering unmatched intelligence density.",
+      "general.quantized_by": "Unsloth",
+      "general.size_label": "461M",
+      "general.license": "apache-2.0",
+      "general.repo_url": "https://huggingface.co/unsloth",
+      "general.base_model.count": 1,
+      "general.base_model.0.name": "Qwen3.8 27B",
+      "general.base_model.0.organization": "Qwen",
+      "general.base_model.0.repo_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "general.tags": [
+        "unsloth"
+      ],
+      "general.file_type": 32,
+      "clip.vision.embedding_length": 1152,
+      "clip.vision.block_count": 27,
+      "clip.vision.attention.head_count": 16,
+      "general.quantization_version": 2
+    },
+    "tensors": 334,
+    "weight_bytes": 931126208,
+    "quant_types": {
+      "F32": 224,
+      "BF16": 110
+    }
+  }
+]

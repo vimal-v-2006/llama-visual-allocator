@@ -1,0 +1,173 @@
+[
+  {
+    "path": "/home/vimal/models/Qwen3.8-Flash-Next-GSQ-RCO/IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf",
+    "tensor_count": 1223,
+    "weight_bytes": 47028835840,
+    "file_bytes": 47039860096,
+    "metadata": {
+      "general.architecture": "qwen4exp",
+      "general.type": "model",
+      "general.sampling.top_k": 20,
+      "general.sampling.top_p": 0.949999988079071,
+      "general.sampling.temp": 1.0,
+      "general.name": "Qwen3.8-Flash-Next GSQ-RCO",
+      "general.description": "A Preview of the Qwen4 Architecture",
+      "general.size_label": "512x56B",
+      "qwen4exp.block_count": 48,
+      "qwen4exp.context_length": 262144,
+      "qwen4exp.embedding_length": 2560,
+      "qwen4exp.attention.head_count": 24,
+      "qwen4exp.attention.head_count_kv": 2,
+      "qwen4exp.expert_count": 512,
+      "qwen4exp.attention.key_length": 256,
+      "qwen4exp.attention.value_length": 256,
+      "qwen4exp.ssm.conv_kernel": 4,
+      "qwen4exp.ssm.state_size": 128,
+      "qwen4exp.ssm.group_count": 16,
+      "qwen4exp.ssm.time_step_rank": 48,
+      "qwen4exp.ssm.inner_size": 6144,
+      "qwen4exp.attention.indexer.head_count": 4,
+      "qwen4exp.attention.indexer.key_length": 128,
+      "qwen4exp.embedding_length_per_layer_input": 160,
+      "general.quantized_by": "ISTA DASLab",
+      "general.repo_url": "https://huggingface.co/ISTA-DASLab",
+      "general.tags": [
+        "gsq-rco",
+        "ista-daslab"
+      ],
+      "general.file_type": 23,
+      "general.quantization_version": 2,
+      "split.no": 0,
+      "split.count": 2,
+      "split.tensors.count": 1224
+    },
+    "types": {
+      "Q5_K": 15,
+      "BF16": 484,
+      "F32": 292,
+      "IQ3_S": 82,
+      "IQ4_XS": 67,
+      "IQ4_NL": 58,
+      "IQ2_XS": 20,
+      "Q6_K": 71,
+      "Q2_0": 38,
+      "IQ2_XXS": 18,
+      "F16": 1,
+      "Q4_K": 45,
+      "IQ2_S": 20,
+      "IQ3_XXS": 12
+    },
+    "largest": [
+      {
+        "name": "blk.0.ffn_down_exps.weight",
+        "nbytes": 471859200,
+        "shape": [
+          "640",
+          "2560",
+          "512"
+        ]
+      },
+      {
+        "name": "blk.2.ffn_down_exps.weight",
+        "nbytes": 471859200,
+        "shape": [
+          "640",
+          "2560",
+          "512"
+        ]
+      },
+      {
+        "name": "blk.4.ffn_down_exps.weight",
+        "nbytes": 471859200,
+        "shape": [
+          "640",
+          "2560",
+          "512"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/home/vimal/models/Qwen3.8-Flash-Next-GSQ-RCO/IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00002-of-00002.gguf",
+    "tensor_count": 1,
+    "weight_bytes": 28800138240,
+    "file_bytes": 28800138432,
+    "metadata": {
+      "split.no": 1,
+      "split.count": 2,
+      "split.tensors.count": 1224
+    },
+    "types": {
+      "IQ4_NL": 1
+    },
+    "largest": [
+      {
+        "name": "per_layer_token_embd.weight",
+        "nbytes": 28800138240,
+        "shape": [
+          "160",
+          "320001536"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/home/vimal/Documents/Projects/llama-visual-allocator/tests/models/SmolLM2-135M-Instruct-Q4_K_M.gguf",
+    "tensor_count": 272,
+    "weight_bytes": 103668480,
+    "file_bytes": 105454432,
+    "metadata": {
+      "general.architecture": "llama",
+      "general.type": "model",
+      "general.name": "Smollm2 135M 8k Lc100K Mix1 Ep2",
+      "general.organization": "HuggingFaceTB",
+      "general.finetune": "8k-lc100k-mix1-ep2",
+      "general.basename": "smollm2",
+      "general.size_label": "135M",
+      "general.license": "apache-2.0",
+      "general.languages": [
+        "en"
+      ],
+      "llama.block_count": 30,
+      "llama.context_length": 8192,
+      "llama.embedding_length": 576,
+      "llama.attention.head_count": 9,
+      "llama.attention.head_count_kv": 3,
+      "general.file_type": 15,
+      "general.quantization_version": 2
+    },
+    "types": {
+      "Q8_0": 15,
+      "F32": 61,
+      "Q6_K": 14,
+      "Q5_0": 166,
+      "Q4_K": 16
+    },
+    "largest": [
+      {
+        "name": "token_embd.weight",
+        "nbytes": 30081024,
+        "shape": [
+          "576",
+          "49152"
+        ]
+      },
+      {
+        "name": "blk.0.ffn_down.weight",
+        "nbytes": 725760,
+        "shape": [
+          "1536",
+          "576"
+        ]
+      },
+      {
+        "name": "blk.1.ffn_down.weight",
+        "nbytes": 725760,
+        "shape": [
+          "1536",
+          "576"
+        ]
+      }
+    ]
+  }
+]

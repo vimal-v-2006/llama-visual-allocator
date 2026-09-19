@@ -1,0 +1,145 @@
+{
+  "executable": "/home/vimal/AI/llama.cpp/build/bin/llama-server",
+  "model_path": "/home/vimal/Documents/Projects/llama-visual-allocator/tests/models/SmolLM2-135M-Instruct-Q4_K_M.gguf",
+  "devices": {
+    "CUDA0": {
+      "cap_mib": 14948,
+      "backend_mib": 256,
+      "enabled": true
+    },
+    "Vulkan0": {
+      "cap_mib": 14948,
+      "backend_mib": 256,
+      "enabled": false
+    },
+    "Vulkan1": {
+      "cap_mib": 12256,
+      "backend_mib": 256,
+      "enabled": true
+    },
+    "RAM": {
+      "cap_mib": 23854.12890625,
+      "backend_mib": 0,
+      "enabled": true
+    },
+    "MMAP": {
+      "cap_mib": 23854.12890625,
+      "backend_mib": 0,
+      "enabled": true
+    }
+  },
+  "placements": {
+    "global.token_embd.weight": "Vulkan1",
+    "blk.0.attention": "CUDA0",
+    "blk.0.ffn": "CUDA0",
+    "blk.1.attention": "CUDA0",
+    "blk.1.ffn": "CUDA0",
+    "blk.10.attention": "CUDA0",
+    "blk.10.ffn": "CUDA0",
+    "blk.11.attention": "CUDA0",
+    "blk.11.ffn": "CUDA0",
+    "blk.12.attention": "CUDA0",
+    "blk.12.ffn": "CUDA0",
+    "blk.13.attention": "CUDA0",
+    "blk.13.ffn": "CUDA0",
+    "blk.14.attention": "CUDA0",
+    "blk.14.ffn": "CUDA0",
+    "blk.15.attention": "CUDA0",
+    "blk.15.ffn": "CUDA0",
+    "blk.16.attention": "CUDA0",
+    "blk.16.ffn": "CUDA0",
+    "blk.17.attention": "CUDA0",
+    "blk.17.ffn": "CUDA0",
+    "blk.18.attention": "CUDA0",
+    "blk.18.ffn": "CUDA0",
+    "blk.19.attention": "CUDA0",
+    "blk.19.ffn": "CUDA0",
+    "blk.2.attention": "CUDA0",
+    "blk.2.ffn": "CUDA0",
+    "blk.20.attention": "CUDA0",
+    "blk.20.ffn": "CUDA0",
+    "blk.21.attention": "CUDA0",
+    "blk.21.ffn": "CUDA0",
+    "blk.22.attention": "CUDA0",
+    "blk.22.ffn": "CUDA0",
+    "blk.23.attention": "CUDA0",
+    "blk.23.ffn": "CUDA0",
+    "blk.24.attention": "CUDA0",
+    "blk.24.ffn": "CUDA0",
+    "blk.25.attention": "CUDA0",
+    "blk.25.ffn": "CUDA0",
+    "blk.26.attention": "CUDA0",
+    "blk.26.ffn": "CUDA0",
+    "blk.27.attention": "CUDA0",
+    "blk.27.ffn": "CUDA0",
+    "blk.28.attention": "CUDA0",
+    "blk.28.ffn": "CUDA0",
+    "blk.29.attention": "CUDA0",
+    "blk.29.ffn": "CUDA0",
+    "blk.3.attention": "CUDA0",
+    "blk.3.ffn": "CUDA0",
+    "blk.4.attention": "CUDA0",
+    "blk.4.ffn": "CUDA0",
+    "blk.5.attention": "CUDA0",
+    "blk.5.ffn": "CUDA0",
+    "blk.6.attention": "CUDA0",
+    "blk.6.ffn": "CUDA0",
+    "blk.7.attention": "CUDA0",
+    "blk.7.ffn": "CUDA0",
+    "blk.8.attention": "CUDA0",
+    "blk.8.ffn": "CUDA0",
+    "blk.9.attention": "CUDA0",
+    "blk.9.ffn": "CUDA0",
+    "global.output_norm.weight": "CUDA0"
+  },
+  "locked": [
+    "global.token_embd.weight"
+  ],
+  "positions": {},
+  "edges": [],
+  "placement_mode": "tensor",
+  "split": {
+    "mode": "layer",
+    "ratios": [],
+    "main_gpu": 0,
+    "gpu_layers": 999,
+    "devices": []
+  },
+  "context": {
+    "size": 8192,
+    "batch": 512,
+    "ubatch": 128,
+    "k_type": "f16",
+    "v_type": "f16",
+    "flash": "auto",
+    "parallel": 1,
+    "kv_offload": false
+  },
+  "spec": {
+    "mode": "none",
+    "model_path": "",
+    "tokens": 4,
+    "p_min": 0.75,
+    "device": "RAM",
+    "overhead_mib": 512
+  },
+  "sampling": {},
+  "reasoning": {},
+  "vision": {
+    "enabled": false,
+    "model_path": "",
+    "device": "RAM"
+  },
+  "environment": {
+    "cuda_disable_graphs": false
+  },
+  "server": {
+    "host": "127.0.0.1",
+    "port": 8096,
+    "allow_network": false
+  },
+  "acknowledge_estimate": false,
+  "overhead_mib": 512,
+  "compute_mib": 512,
+  "mmap": true
+}

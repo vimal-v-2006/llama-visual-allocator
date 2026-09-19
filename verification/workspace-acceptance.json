@@ -1,0 +1,36 @@
+{
+  "completion": " Paris. Paris is the political, cultural, and economic center",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 5,
+    "prompt_ms": 24.989,
+    "prompt_per_token_ms": 4.9978,
+    "prompt_per_second": 200.08803873704431,
+    "predicted_n": 12,
+    "predicted_ms": 184.107,
+    "predicted_per_token_ms": 16.737,
+    "predicted_per_second": 59.74786401386151
+  },
+  "runtime": {
+    "health": "healthy",
+    "rss_bytes": 578572288,
+    "prompt_tps": 200.09,
+    "generation_tps": 59.75,
+    "gpu_process_bytes": {
+      "GPU-8649dee6-0717-f189-b963-9e30c1225721": 6291456,
+      "0000:2f:00.0": 12288
+    },
+    "gpu_global": [
+      {
+        "id": "GPU-8649dee6-0717-f189-b963-9e30c1225721",
+        "name": "NVIDIA GeForce RTX 5070 Ti",
+        "used_bytes": 694157312,
+        "total_bytes": 17094934528
+      }
+    ]
+  },
+  "browser_errors": [],
+  "security": "unauthenticated and hostile Host rejected; nonce one-use; no cookies",
+  "model_tensors": 272,
+  "passed": true
+}

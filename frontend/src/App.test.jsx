@@ -1,0 +1,44 @@
+import React from 'react';
+import {it,expect,vi} from 'vitest';
+import {render,screen,fireEvent,waitFor} from '@testing-library/react';
+import App from './App';
+vi.mock('./Graph',()=>({default:()=> <div>Graph workspace</div>}));
+const config={executable:'',model_path:'',devices:{},placements:{},locked:[],context:{size:4096,batch:512,ubatch:128,k_type:'f16',v_type:'f16',flash:'auto',parallel:1},spec:{mode:'none',model_path:'',tokens:4,p_min:0.75,device:'RAM',overhead_mib:512},server:{host:'127.0.0.1',port:8096},positions:{},edges:[],overhead_mib:512,compute_mib:512,mmap:true};
+it('does not endlessly retry an invalid plan until the user changes a setting',async()=>{
+ sessionStorage.setItem('allocator-token','test');
+ global.fetch=vi.fn(async(url)=>{if(url.endsWith('/plan')){await new Promise(resolve=>setTimeout(resolve,30));return {ok:false,json:async()=>({detail:'Invalid configuration'})}}return {ok:true,json:async()=>({config,model:{name:'Loaded',groups:[],layer_count:0},runtime:{running:false}})}});
+ render(<App/>);await screen.findByText('Graph workspace');
+ fireEvent.change(screen.getByLabelText('Compute estimate / MiB'),{target:{value:'300'}});
+ await screen.findByText('Invalid configuration');
+ await new Promise(resolve=>setTimeout(resolve,950));
+ expect(fetch.mock.calls.filter(([url])=>url.endsWith('/plan'))).toHaveLength(1);
+});
+it('keeps edits made while a model load is in flight and marks its plan stale',async()=>{
+ sessionStorage.setItem('allocator-token','test');
+ let finish;
+ global.fetch=vi.fn(async(url)=>({ok:true,json:()=>url.endsWith('/state')?Promise.resolve({config,model:null}):url.endsWith('/model')?new Promise(resolve=>{finish=resolve}):Promise.resolve({})}));
+ render(<App/>);
+ await screen.findByText('Graph workspace');
+ fireEvent.change(screen.getByLabelText('Model path'),{target:{value:'/first.gguf'}});
+ fireEvent.click(screen.getByRole('button',{name:'Load model'}));
+ await waitFor(()=>expect(finish).toBeTypeOf('function'));
+ fireEvent.change(screen.getByLabelText('Model path'),{target:{value:'/second.gguf'}});
+ finish({config:{...config,model_path:'/first.gguf'},model:{name:'first',groups:[]},plan:{launchable:true,status:'FIT'}});
+ await screen.findByText('Workspace ready');
+ expect(screen.getByLabelText('Model path')).toHaveValue('/second.gguf');
+ expect(screen.getByRole('button',{name:'Start server'})).toBeDisabled();
+});
+it('loads a real model through the API and applies automatic planning',async()=>{
+ sessionStorage.setItem('allocator-token','test');
+ const model={name:'Test GGUF',groups:[],tensors:[],layer_count:0,weight_bytes:100};
+ const plan={config:{...config,model_path:'/real.gguf'},memory:[],allocation:{},status:'UNKNOWN',warnings:[],errors:[],assumptions:[],launchable:false};
+ global.fetch=vi.fn(async(url,options)=>({ok:true,json:async()=>url.endsWith('/state')?{config,model:null,capabilities:{devices:[]},runtime:{running:false}}:url.endsWith('/model')?{model,config:plan.config,capabilities:{devices:[]},plan}:url.endsWith('/plan')?plan:{running:false}}));
+ render(<App/>);
+ await screen.findByText('Graph workspace');
+ fireEvent.change(screen.getByLabelText('Model path'),{target:{value:'/real.gguf'}});
+ fireEvent.click(screen.getByRole('button',{name:'Load model'}));
+ await waitFor(()=>expect(fetch.mock.calls.some(([url,opts])=>url.endsWith('/model')&&JSON.parse(opts.body).path==='/real.gguf')).toBe(true));
+ fireEvent.click(screen.getByRole('button',{name:'Auto Maximum Fit'}));
+ await waitFor(()=>expect(fetch.mock.calls.some(([url,opts])=>url.endsWith('/plan')&&JSON.parse(opts.body).mode==='maximum')).toBe(true));
+ expect(screen.getByRole('button',{name:'Start server'})).toBeDisabled();
+});
